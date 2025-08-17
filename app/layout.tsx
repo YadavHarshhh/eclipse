@@ -1,0 +1,42 @@
+import type React from "react"
+import "@/app/globals.css"
+import { ThemeProvider } from "@/components/theme-provider"
+import { Inter } from "next/font/google"
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from '@vercel/analytics/next';
+
+const inter = Inter({ subsets: ["latin"] })
+
+export const metadata = {
+  title: "Glitch! eSports Society Presents Eclipse - The Ultimate Gaming Battleground",
+  description: "The Cultural and Techno-Management Fest of Glitch! eSports Society, showcasing the best in gaming and technology.",
+    generator: 'v0.dev'
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+        <SpeedInsights />
+        <Analytics />
+      </body>
+    </html>
+  );
+}
+
+
+
+
+import './globals.css'
